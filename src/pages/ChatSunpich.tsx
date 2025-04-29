@@ -142,10 +142,7 @@ const ChatSunpich = () => {
         {messages.map((message) => (
           <motion.div
             key={message.id}
-            style={{ 
-              display: 'flex', 
-              justifyContent: message.sender === 'user' ? 'flex-end' : 'flex-start'
-            }}
+            className={`message-container ${message.sender === 'user' ? 'message-container-user' : 'message-container-agent'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -165,7 +162,7 @@ const ChatSunpich = () => {
         
         {isLoading && (
           <motion.div 
-            style={{ display: 'flex', justifyContent: 'flex-start' }}
+            className="loading-container"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >

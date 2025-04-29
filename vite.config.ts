@@ -5,6 +5,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    host: true, // Escuchar en todas las interfaces de red
+    port: 5173, // Puerto por defecto
+    strictPort: false, // Permite usar otro puerto si el 5173 está ocupado
+    open: true, // Abrir automáticamente el navegador
     proxy: {
       // Proxy para Steve API
       '/steve-api': {

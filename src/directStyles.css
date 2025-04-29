@@ -261,3 +261,23 @@ body {
     color: #9ca3af;
     min-width: 2.5rem;
   }
+  /* Añadir al final de tu archivo directStyles.css */
+
+.message-container {
+  display: flex;
+  width: 100%;
+}
+
+.message-container-user {
+  justify-content: flex-end;
+}
+
+.message-container-agent {
+  justify-content: flex-start;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
