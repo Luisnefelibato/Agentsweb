@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyla Virtual Agents</title>
+  </head>
+  <body>
+    <!-- Elemento donde se montará React -->
+    <div id="root"></div>
+    
+    <!-- Añadimos un mensaje que aparece si JavaScript no carga correctamente -->
+    <noscript>
+      Necesitas habilitar JavaScript para ejecutar esta aplicación.
+    </noscript>
+    
+    <!-- Script de inicialización con manejo de errores -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Script para mostrar errores de manera visual -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Error en la página:', e.message);
+        const rootEl = document.getElementById('root');
+        if (rootEl && rootEl.innerHTML === '') {
+          rootEl.innerHTML = `
+            <div style="color: red; padding: 20px; font-family: sans-serif;">
+              <h2>Error al cargar la aplicación</h2>
+              <p>${e.message}</p>
+              <p>Revisa la consola para más detalles.</p>
+            </div>
+          `;
+        }
+      });
+    </script>
+  </body>
+</html>
