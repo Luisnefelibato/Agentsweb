@@ -65,7 +65,7 @@ const ChatSunpich = () => {
     setIsLoading(true);
     
     try {
-      // Obtener respuesta de Sunpich
+      // Obtener respuesta de Sunpich sin límite de tiempo
       const response = await sendMessage(userMessage);
       
       // Agregar respuesta de Sunpich al chat
@@ -104,10 +104,8 @@ const ChatSunpich = () => {
     
     setInputMessage(transcript);
     
-    // Pequeña pausa para que el usuario vea lo que se transcribió antes de enviar
-    setTimeout(() => {
-      handleSubmit();
-    }, 500);
+    // Enviar el mensaje inmediatamente sin timeout
+    handleSubmit();
   };
 
   return (

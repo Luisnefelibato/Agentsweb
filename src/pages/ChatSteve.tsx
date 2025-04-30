@@ -65,7 +65,7 @@ const ChatSteve = () => {
     setIsLoading(true);
     
     try {
-      // Obtener respuesta de Steve
+      // Obtener respuesta de Steve sin límite de tiempo
       const response = await sendMessage(userMessage);
       
       // Agregar respuesta de Steve al chat
@@ -104,10 +104,8 @@ const ChatSteve = () => {
     
     setInputMessage(transcript);
     
-    // Pequeña pausa para que el usuario vea lo que se transcribió antes de enviar
-    setTimeout(() => {
-      handleSubmit();
-    }, 500);
+    // Enviar el mensaje inmediatamente sin timeout
+    handleSubmit();
   };
 
   return (

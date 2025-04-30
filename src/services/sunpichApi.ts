@@ -10,7 +10,7 @@ const API_CONFIG = {
     status: '/status'                       
   },
   userName: 'William Mosquera',             // Nombre del usuario para las solicitudes
-  timeout: 100000,                          // Timeout en milisegundos (100 segundos)
+  timeout: 0,                               // Sin timeout (0 = ilimitado)
   retries: 3,                               // Número de reintentos para chat
   useBrowserTTS: true                       // Usar TTS del navegador como respaldo
 };
@@ -59,7 +59,7 @@ export const sendMessage = async (message: string, userName: string = API_CONFIG
       const response = await axios.post(
         url, 
         { message, user_name: userName },  // Formato correcto con user_name
-        { timeout: API_CONFIG.timeout }
+        { timeout: 0 }  // Sin timeout (0 = ilimitado)
       );
       
       console.log('Respuesta recibida de Sunpich API:', response.data);
@@ -132,13 +132,13 @@ export const getAudioResponse = async (message: string, userName: string = API_C
     console.log('Solicitando audio para:', message);
     const url = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints.speak}`;
     
-    // Intentamos una sola vez con un timeout extendido
+    // Intentamos sin timeout
     const response = await axios.post(
       url, 
       { message, user_name: userName },  // Formato correcto con user_name
       { 
         responseType: 'blob',
-        timeout: 100000, // 100 segundos de timeout para audio
+        timeout: 0,  // Sin timeout (0 = ilimitado)
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'audio/mpeg, */*'
