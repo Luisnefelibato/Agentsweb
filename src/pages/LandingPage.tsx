@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import '../directStyles.css';
+// Importamos las imágenes
+import steveLogo from '../Steve.jpeg';
+import sunpichLogo from '../Sunpich.jpeg';
 
 const LandingPage = () => {
   return (
@@ -23,7 +26,12 @@ const LandingPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            Steve Jobs - Estratega
+            <img 
+              src={steveLogo} 
+              alt="Steve Jobs" 
+              className="agent-image"
+            />
+            <span className="agent-name">Steve Jobs - Estratega</span>
           </motion.div>
         </Link>
 
@@ -35,10 +43,22 @@ const LandingPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Sunpich - Innovador
+            <img 
+              src={sunpichLogo} 
+              alt="Sundar Pichai" 
+              className="agent-image"
+            />
+            <span className="agent-name">Sunpich - Innovador</span>
           </motion.div>
         </Link>
       </div>
+      
+      {/* Footer */}
+      <footer className="landing-footer">
+        <div className="footer-content">
+          LuisFercode by Antares2025
+        </div>
+      </footer>
     </div>
   );
 };

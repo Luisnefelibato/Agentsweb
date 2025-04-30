@@ -5,6 +5,8 @@ import MicrophoneButton from '../components/MicrophoneButton';
 import AudioPlayer from '../components/AudioPlayer';
 import { sendMessage } from '../services/sunpichApi';
 import '../directStyles.css';
+// Importamos la imagen de Sunpich
+import sunpichImage from '../Sunpich.jpeg';
 
 interface Message {
   id: number;
@@ -121,20 +123,20 @@ const ChatSunpich = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Volver
+            <span className="back-text">Volver</span>
           </motion.button>
         </Link>
         
         <h1 className="chat-title">
           <img 
-            src="https://placehold.co/50x50/blue/white?text=SP" 
+            src={sunpichImage} 
             alt="Sunpich Avatar" 
             className="avatar"
           />
-          Sunpich - Innovador
+          <span className="title-text">Sunpich - Innovador</span>
         </h1>
         
-        <div style={{ width: '2.5rem' }}></div> {/* Spacer para centrar el título */}
+        <div className="header-spacer"></div> {/* Spacer para centrar el título */}
       </header>
       
       {/* Chat Messages */}
@@ -178,6 +180,13 @@ const ChatSunpich = () => {
         
         <div ref={messagesEndRef} />
       </div>
+      
+      {/* Footer */}
+      <footer className="chat-footer">
+        <div className="footer-content">
+          LuisFercode by Antares2025
+        </div>
+      </footer>
       
       {/* Input Area */}
       <div className="input-area">
