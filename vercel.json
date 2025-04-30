@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/steve-api/(.*)", "destination": "https://steveweb.onrender.com/$1" },
-      { "source": "/sunpich-api/(.*)", "destination": "https://sunpich.onrender.com/$1" }
+      { "source": "/steve-api", "destination": "https://steveweb.onrender.com/" },
+      { "source": "/sunpich-api", "destination": "https://sunpich.onrender.com/" }
     ]
   }
